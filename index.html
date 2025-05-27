@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-F-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hola</title>
+    <title>Página de Prueba</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .timestamp {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>¡Hola desde mi Servidor EC2!</h1>
+        <p>Esta es una página de prueba HTML simple servida desde mi máquina virtual.</p>
+        <p>Si ves esto, ¡la configuración funciona!</p>
+        <div class="timestamp" id="datetime"></div>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('datetime').textContent = 'Fecha y Hora Actual: ' + now.toLocaleDateString('es-ES', options);
+        }
+        // Actualizar inmediatamente y luego cada segundo
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
 </body>
 </html>
